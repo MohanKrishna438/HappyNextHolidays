@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="happynextholidays.client/happynextholidays.client.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="HappyNextHolidays.Server/HappyNextHolidays.Server.csproj" />
+</Solution>
