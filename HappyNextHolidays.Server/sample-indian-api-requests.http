@@ -1,0 +1,245 @@
+### Happy Next Holidays - Indian Cities API Tests
+
+@baseUrl = https://localhost:5001/api
+
+### ==========================
+### INDIAN CITIES - TESTING
+### ==========================
+
+### 1. GET DELHI - Complete Details
+GET {{baseUrl}}/city/Delhi
+
+### 2. GET MUMBAI - Complete Details
+GET {{baseUrl}}/city/Mumbai
+
+### 3. GET BANGALORE - Complete Details
+GET {{baseUrl}}/city/Bangalore
+
+### 4. GET HYDERABAD - Complete Details
+GET {{baseUrl}}/city/Hyderabad
+
+### 5. GET GOA - Complete Details
+GET {{baseUrl}}/city/Goa
+
+### 6. GET JAIPUR - Complete Details
+GET {{baseUrl}}/city/Jaipur
+
+### 7. GET PUNE - Complete Details
+GET {{baseUrl}}/city/Pune
+
+### 8. GET KOLKATA - Complete Details
+GET {{baseUrl}}/city/Kolkata
+
+### ==========================
+### GET PLACES BY CITY
+### ==========================
+
+### 9. GET DELHI PLACES
+GET {{baseUrl}}/city/Delhi/places
+
+### 10. GET MUMBAI PLACES
+GET {{baseUrl}}/city/Mumbai/places
+
+### 11. GET BANGALORE PLACES
+GET {{baseUrl}}/city/Bangalore/places
+
+### 12. GET HYDERABAD PLACES
+GET {{baseUrl}}/city/Hyderabad/places
+
+### 13. GET GOA PLACES
+GET {{baseUrl}}/city/Goa/places
+
+### 14. GET JAIPUR PLACES
+GET {{baseUrl}}/city/Jaipur/places
+
+### 15. GET PUNE PLACES
+GET {{baseUrl}}/city/Pune/places
+
+### 16. GET KOLKATA PLACES
+GET {{baseUrl}}/city/Kolkata/places
+
+### ==========================
+### GET EMERGENCY CONTACTS
+### ==========================
+
+### 17. GET DELHI EMERGENCY
+GET {{baseUrl}}/city/Delhi/emergency
+
+### 18. GET MUMBAI EMERGENCY
+GET {{baseUrl}}/city/Mumbai/emergency
+
+### 19. GET BANGALORE EMERGENCY
+GET {{baseUrl}}/city/Bangalore/emergency
+
+### 20. GET HYDERABAD EMERGENCY
+GET {{baseUrl}}/city/Hyderabad/emergency
+
+### 21. GET GOA EMERGENCY
+GET {{baseUrl}}/city/Goa/emergency
+
+### 22. GET JAIPUR EMERGENCY
+GET {{baseUrl}}/city/Jaipur/emergency
+
+### 23. GET PUNE EMERGENCY
+GET {{baseUrl}}/city/Pune/emergency
+
+### 24. GET KOLKATA EMERGENCY
+GET {{baseUrl}}/city/Kolkata/emergency
+
+### ==========================
+### SAMPLE TRIP SCENARIOS
+### ==========================
+
+### Scenario 1: Create family profile for Delhi trip
+POST {{baseUrl}}/familyprofile
+Content-Type: application/json
+
+{
+  "destinationCity": "Delhi",
+  "startDate": "2024-12-15T00:00:00",
+  "endDate": "2024-12-20T00:00:00",
+  "adultsCount": 2,
+  "kidsCount": 2,
+  "strollerRequired": true,
+  "budgetPreference": "Medium",
+  "slowTravelMode": false,
+  "children": [
+    {
+      "name": "Aditya",
+      "ageInMonths": 24,
+      "hasSpecialNeeds": false,
+      "dietaryRestrictions": null,
+      "napStartTime": "13:00",
+      "napEndTime": "15:00"
+    },
+    {
+      "name": "Priya",
+      "ageInMonths": 48,
+      "hasSpecialNeeds": false,
+      "dietaryRestrictions": null,
+      "napStartTime": "13:30",
+      "napEndTime": "14:30"
+    }
+  ]
+}
+
+### Scenario 2: Create family profile for Goa beach trip
+POST {{baseUrl}}/familyprofile
+Content-Type: application/json
+
+{
+  "destinationCity": "Goa",
+  "startDate": "2024-12-25T00:00:00",
+  "endDate": "2024-12-31T00:00:00",
+  "adultsCount": 2,
+  "kidsCount": 1,
+  "strollerRequired": true,
+  "budgetPreference": "High",
+  "slowTravelMode": true,
+  "children": [
+    {
+      "name": "Ananya",
+      "ageInMonths": 36,
+      "hasSpecialNeeds": false,
+      "dietaryRestrictions": "Nut allergy",
+      "napStartTime": "14:00",
+      "napEndTime": "16:00"
+    }
+  ]
+}
+
+### Scenario 3: Create family profile for Bangalore tech-family trip
+POST {{baseUrl}}/familyprofile
+Content-Type: application/json
+
+{
+  "destinationCity": "Bangalore",
+  "startDate": "2024-11-01T00:00:00",
+  "endDate": "2024-11-05T00:00:00",
+  "adultsCount": 2,
+  "kidsCount": 2,
+  "strollerRequired": false,
+  "budgetPreference": "Medium",
+  "slowTravelMode": false,
+  "children": [
+    {
+      "name": "Rohan",
+      "ageInMonths": 30,
+      "hasSpecialNeeds": false,
+      "dietaryRestrictions": null,
+      "napStartTime": "13:00",
+      "napEndTime": "14:30"
+    },
+    {
+      "name": "Sara",
+      "ageInMonths": 60,
+      "hasSpecialNeeds": false,
+      "dietaryRestrictions": null,
+      "napStartTime": "14:00",
+      "napEndTime": "15:00"
+    }
+  ]
+}
+
+### Scenario 4: Create family profile for Jaipur heritage trip
+POST {{baseUrl}}/familyprofile
+Content-Type: application/json
+
+{
+  "destinationCity": "Jaipur",
+  "startDate": "2024-10-01T00:00:00",
+  "endDate": "2024-10-04T00:00:00",
+  "adultsCount": 3,
+  "kidsCount": 1,
+  "strollerRequired": true,
+  "budgetPreference": "Medium",
+  "slowTravelMode": true,
+  "children": [
+    {
+      "name": "Zara",
+      "ageInMonths": 20,
+      "hasSpecialNeeds": false,
+      "dietaryRestrictions": "Gluten-free",
+      "napStartTime": "12:30",
+      "napEndTime": "14:30"
+    }
+  ]
+}
+
+### ==========================
+### TESTING NOTES
+### ==========================
+
+### After creating family profiles above, test:
+### 1. Generate itinerary: POST /api/itinerary/generate/{familyProfileId}
+### 2. Generate packing: POST /api/packingchecklist/generate/{familyProfileId}
+### 3. Get itinerary: GET /api/itinerary/family/{familyProfileId}
+### 4. Get packing: GET /api/packingchecklist/family/{familyProfileId}
+
+### CITY DATA INCLUDES:
+### - Parks (Lodhi Garden, Cubbon Park, Marina Drive, etc.)
+### - Zoos (Delhi Zoo, Mumbai Zoo, Nahargarh Zoo)
+### - Beaches (Baga Beach, Anjuna Beach - Goa only)
+### - Museums (Indian Museum, Birla Planetarium, etc.)
+### - Restaurants (Family-friendly dining in every city)
+### - Indoor Play (Snow Kingdom, Essel World, Innovative Children's Park)
+
+### TEMPERATURE INFO:
+### Delhi: 25°C    | Jaipur: 26°C   | Pune: 24°C
+### Mumbai: 28°C   | Goa: 30°C (hottest)
+### Bangalore: 22°C (coolest) | Hyderabad: 27°C | Kolkata: 26°C
+
+### EMERGENCY CONTACTS IN EVERY CITY:
+### - Major Hospital (Apollo, Fortis, Max, etc.)
+### - Pediatric Clinic (for child-specific care)
+### - Emergency Number: 102 (nationwide)
+
+### AMENITIES TRACKED:
+### ? High chairs availability
+### ? Kids menu
+### ? Changing rooms
+### ? Stroller friendly
+### ? GPS coordinates
+### ? Average duration
+### ? Kid-friendly score (1-5)
+### ? Walkability score (1-5)
